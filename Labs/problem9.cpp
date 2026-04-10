@@ -7,7 +7,7 @@ int main (){
     cout<<"Enter the two integers \n ";
     cin>>num1>>num2;
     cout<<"Enter your choice for operation on these two integers \n";
-    cout<<"1 for addition \n  2 for subtraction \n  3 for multipication \n  4 for division \n";
+    cout<<"  1- for addition \n  2- for subtraction \n  3- for multipication \n  4- for division \n";
     cin>>choice;
     switch (choice){
         case 1:
