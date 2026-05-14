@@ -374,3 +374,265 @@ Which matches our output of **15 years!**
 ## 👤 Author
 
 Danish
+
+######
+
+problem 5 in loops:
+# Car Fuel Tracker — C++ Program
+
+A real world C++ program that simulates a **car fuel gauge**, showing how much fuel remains after every 50 km until the car runs out of fuel using a `while` loop.
+
+---
+
+## 📋 Description
+
+The user enters the current fuel level in the tank. The program then calculates and displays the remaining fuel after every 50 km, consuming 4 litres per 50 km (which equals 8 litres per 100 km), until the fuel reaches 0.
+
+---
+
+## 💻 Code
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+    int fuel;
+    int distance = 50;
+    cout << "Enter current fuel level: ";
+    cin >> fuel;
+    while (fuel > 0){
+        fuel -= 4;
+        cout << "After " << distance << " km the fuel level is " << fuel << " liters" << endl;
+        distance += 50;
+    }
+    cout << "Car has run out the fuel" << endl;
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o car_fuel car_fuel.cpp
+```
+
+### Execute
+```bash
+./car_fuel
+```
+
+---
+
+## 🧪 Example
+
+```
+Enter current fuel level: 60
+
+After 50 km the fuel level is 56 liters
+After 100 km the fuel level is 52 liters
+After 150 km the fuel level is 48 liters
+After 200 km the fuel level is 44 liters
+After 250 km the fuel level is 40 liters
+After 300 km the fuel level is 36 liters
+After 350 km the fuel level is 32 liters
+After 400 km the fuel level is 28 liters
+After 450 km the fuel level is 24 liters
+After 500 km the fuel level is 20 liters
+After 550 km the fuel level is 16 liters
+After 600 km the fuel level is 12 liters
+After 650 km the fuel level is 8 liters
+After 700 km the fuel level is 4 liters
+After 750 km the fuel level is 0 liters
+Car has run out the fuel
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**Fuel consumption per 50 km:**
+```
+8 litres per 100 km
+= 4 litres per 50 km
+```
+
+**Decrement first, then print:**
+```cpp
+fuel -= 4;       // subtract first ✅
+cout << fuel;    // then print updated value ✅
+```
+
+This ensures the output always shows the correct remaining fuel.
+
+---
+
+## 🧠 Dry Run for input `20`
+
+| Distance | Fuel Before | - 4 | Fuel After |
+|----------|------------|-----|------------|
+| 50 km    | 20         | -4  | 16         |
+| 100 km   | 16         | -4  | 12         |
+| 150 km   | 12         | -4  | 8          |
+| 200 km   | 8          | -4  | 4          |
+| 250 km   | 4          | -4  | 0          |
+| —        | 0          | —   | Loop ends  |
+
+---
+
+## 📌 Concepts Used
+
+- `while` loop
+- Decrement operator (`-=`)
+- Increment operator (`+=`)
+- Variable tracking (distance, fuel)
+
+---
+
+## 🌍 Real World Connection
+
+This program simulates how a real **car fuel gauge** works:
+- Every 50 km the fuel drops by 4 litres
+- The dashboard warns you when fuel hits 0
+- Helps estimate how far you can travel on a full tank
+
+---
+
+## 👤 Author
+
+Danish
+
+######
+problem 6 in loops :
+# Student Marks Calculator — C++ Program
+
+A real world C++ program that takes marks for 5 subjects as input and calculates the **total marks** and **average** using a `for` loop.
+
+---
+
+## 📋 Description
+
+The user enters marks for each of the 5 subjects one by one. The program adds them up inside the loop and displays the total and average at the end. This is exactly how a school result system calculates your final grade.
+
+---
+
+## 💻 Code
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+    int marks;
+    int total = 0;
+    cout << "Please enter your (5) subject marks : \n";
+    for(int i = 1; i <= 5; i++){
+        cout << "Subject " << i << " marks: ";
+        cin >> marks;
+        total = total + marks;
+    }
+    cout << "Total marks: " << total << endl;
+    cout << "Average marks: " << total / 5 << endl;
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o marks_calculator marks_calculator.cpp
+```
+
+### Execute
+```bash
+./marks_calculator
+```
+
+---
+
+## 🧪 Example
+
+```
+Please enter your (5) subject marks :
+Subject 1 marks: 85
+Subject 2 marks: 90
+Subject 3 marks: 78
+Subject 4 marks: 92
+Subject 5 marks: 88
+
+Total marks: 433
+Average marks: 86
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**For loop doing two jobs at once:**
+```cpp
+for(int i = 1; i <= 5; i++){
+    cin >> marks;       // takes input
+    total += marks;     // adds to total
+}
+```
+
+One loop handles both **input** and **addition** at the same time.
+
+---
+
+## 🧠 Dry Run
+
+| i | marks | total       |
+|---|-------|-------------|
+| 1 | 85    | 0 + 85 = 85  |
+| 2 | 90    | 85 + 90 = 175 |
+| 3 | 78    | 175 + 78 = 253 |
+| 4 | 92    | 253 + 92 = 345 |
+| 5 | 88    | 345 + 88 = 433 |
+
+**Average = 433 / 5 = 86**
+
+---
+
+## ⚠️ Common Mistakes
+
+**1. Not initializing total**
+```cpp
+int total;     // ❌ garbage value causes wrong total
+int total = 0; // ✅ always initialize to 0
+```
+
+**2. Using marks++ inside loop**
+```cpp
+marks++;               // ❌ adds 1 to every subject mark
+total = total + marks; // ✅ just add marks directly
+```
+
+---
+
+## 📌 Concepts Used
+
+- `for` loop
+- Variable initialization
+- Taking input inside a loop
+- Calculating total and average
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how a **school result system** works:
+- Enter marks for each subject
+- System calculates total
+- System calculates average
+- Result is displayed on your report card
+
+---
+
+## 👤 Author
+
+Danish
