@@ -778,3 +778,293 @@ This is exactly how a **shopping mall billing system** works:
 ## 👤 Author
 
 Danish
+
+######
+problem 8 of loop:
+# Student Pass/Fail Calculator — C++ Program
+
+A real world C++ program that calculates how many students **passed** and **failed** in an exam and displays the **pass percentage** using a `for` loop.
+
+---
+
+## 📋 Description
+
+The user enters the number of students in the class. The program then takes the marks of each student one by one, checks if they passed or failed based on a passing mark of 50, and displays the final result. This is exactly how a school result system works.
+
+---
+
+## 💻 Code
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    int student, marks, pass = 0, fail = 0;
+    cout << "Enter the number of students in your class: ";
+    cin >> student;
+    for (int i = 1; i <= student; i++){
+        cout << "Enter the marks of student " << i << ": ";
+        cin >> marks;
+        if (marks >= 50){
+            pass++;
+        }
+        else {
+            fail++;
+        }
+    }
+    cout << "Total passed    : " << pass << endl;
+    cout << "Total failed    : " << fail << endl;
+    cout << "Pass percentage : " << (pass * 100) / student << "%" << endl;
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o pass_fail pass_fail.cpp
+```
+
+### Execute
+```bash
+./pass_fail
+```
+
+---
+
+## 🧪 Example
+
+```
+Enter the number of students in your class: 5
+
+Enter the marks of student 1: 78
+Enter the marks of student 2: 45
+Enter the marks of student 3: 90
+Enter the marks of student 4: 38
+Enter the marks of student 5: 65
+
+Total passed    : 3
+Total failed    : 2
+Pass percentage : 60%
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**Counting pass and fail:**
+```cpp
+if (marks >= 50){
+    pass++;   // increment pass counter
+}
+else {
+    fail++;   // increment fail counter
+}
+```
+
+**Pass percentage:**
+```cpp
+(pass * 100) / student
+// Example: (3 * 100) / 5 = 60%
+```
+
+---
+
+## 🧠 Dry Run for 5 students (78, 45, 90, 38, 65)
+
+| i | marks | pass | fail |
+|---|-------|------|------|
+| 1 | 78    | 1    | 0    |
+| 2 | 45    | 1    | 1    |
+| 3 | 90    | 2    | 1    |
+| 4 | 38    | 2    | 2    |
+| 5 | 65    | 3    | 2    |
+
+**Pass percentage = (3 * 100) / 5 = 60%**
+
+---
+
+## ⚠️ Common Mistakes
+
+**1. Not initializing pass and fail**
+```cpp
+int pass, fail;         // ❌ garbage value causes wrong count
+int pass = 0, fail = 0; // ✅ always initialize to 0
+```
+
+**2. Storing student number instead of counting**
+```cpp
+pass = i;   // ❌ stores student number not count
+pass++;     // ✅ correctly counts passed students
+```
+
+---
+
+## 📌 Concepts Used
+
+- `for` loop
+- `if/else` condition
+- Increment operator (`++`)
+- Pass percentage calculation
+- Variable initialization
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how a **school result system** works:
+- Teacher enters marks for each student
+- System checks if marks are above passing mark
+- System counts total passed and failed
+- Pass percentage is calculated and shown on result card
+
+---
+
+## 👤 Author
+
+Danish
+
+######
+problem 9 of loop concept:
+# Mobile Data Billing System — C++ Program
+
+A real world C++ program that calculates a customer's **total data usage** and **monthly bill** based on daily GB usage, with a warning if the limit is exceeded using a `for` loop.
+
+---
+
+## 📋 Description
+
+The user enters the number of days and the data used each day in GB. The program calculates the total data consumed and the total bill at 50 Rs per GB. If total usage exceeds 30 GB, a warning is displayed. This is exactly how mobile network companies like Jazz, Zong, or Telenor calculate your monthly bill.
+
+---
+
+## 💻 Code
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    int day;
+    double GB = 0, total = 0;
+    cout << "Enter the number of days that user have used the Data(GB) price per day is 50Rs: ";
+    cin >> day;
+    for (int i = 1; i <= day; i++){
+        cout << "Enter the number of GB used on day " << i << ": ";
+        cin >> GB;
+        total = total + GB;
+    }
+    cout << "Total Data Used : " << total << " GB " << endl;
+    cout << "The total bill of your data usage is : " << total * 50 << " Rs " << endl;
+    if (total > 30){
+        cout << "Warning you have exceeded the 30 GB of the Data limit!" << endl;
+    }
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o data_billing data_billing.cpp
+```
+
+### Execute
+```bash
+./data_billing
+```
+
+---
+
+## 🧪 Example
+
+**Within limit:**
+```
+Enter the number of days: 5
+
+Enter the number of GB used on day 1: 3.5
+Enter the number of GB used on day 2: 2.0
+Enter the number of GB used on day 3: 4.5
+Enter the number of GB used on day 4: 1.5
+Enter the number of GB used on day 5: 2.0
+
+Total Data Used : 13.5 GB
+The total bill of your data usage is : 675 Rs
+```
+
+**Exceeding limit:**
+```
+Enter the number of days: 5
+
+Enter the number of GB used on day 1: 8.0
+Enter the number of GB used on day 2: 7.5
+Enter the number of GB used on day 3: 6.0
+Enter the number of GB used on day 4: 7.0
+Enter the number of GB used on day 5: 6.5
+
+Total Data Used : 35 GB
+The total bill of your data usage is : 1750 Rs
+Warning you have exceeded the 30 GB of the Data limit!
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**Bill Calculation:**
+```cpp
+total * 50
+// Example: 13.5 GB * 50 Rs = 675 Rs
+```
+
+**Data Limit Warning:**
+```cpp
+if (total > 30){
+    cout << "Warning...";
+}
+```
+
+---
+
+## 🧠 Dry Run for 5 days (3.5, 2.0, 4.5, 1.5, 2.0)
+
+| Day | GB used | total          |
+|-----|---------|----------------|
+| 1   | 3.5     | 0 + 3.5 = 3.5  |
+| 2   | 2.0     | 3.5 + 2.0 = 5.5 |
+| 3   | 4.5     | 5.5 + 4.5 = 10.0 |
+| 4   | 1.5     | 10.0 + 1.5 = 11.5 |
+| 5   | 2.0     | 11.5 + 2.0 = 13.5 |
+
+**Total = 13.5 GB → Bill = 13.5 * 50 = 675 Rs → Under 30 GB limit ✅**
+
+---
+
+## 📌 Concepts Used
+
+- `for` loop
+- `double` data type
+- `if` condition
+- Variable initialization
+- Taking input inside a loop
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how **mobile network companies** calculate your bill:
+- Your phone tracks data used each day
+- At end of month total is calculated
+- Bill is generated based on usage
+- Warning is sent if you exceed your package limit
+
+---
+
+## 👤 Author
+
+Danish
