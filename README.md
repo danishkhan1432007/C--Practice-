@@ -1068,3 +1068,136 @@ This is exactly how **mobile network companies** calculate your bill:
 ## 👤 Author
 
 Danish
+
+problem 10 in loop concept :
+# Cricket Team Score Tracker — C++ Program
+
+A real world C++ program that tracks the **scores of 11 cricket players**, finds the **highest scorer**, calculates **total runs**, and counts players with a **good innings (30+ runs)** using a `for` loop.
+
+---
+
+## 📋 Description
+
+The user enters the runs scored by each of the 11 players. The program calculates the total team score, identifies the highest scorer and their player number, and counts how many players scored 30 or more runs. This is exactly how PCB tracks team performance after a match.
+
+---
+
+## 💻 Code
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+    int player = 11, score, total = 0, highest = 0, topplayer = 0, goodinings = 0;
+    for (int i = 1; i <= player; i++){
+        cout << "Enter the score of player " << i << ": ";
+        cin >> score;
+        total = total + score;
+        if (score > highest){
+            highest = score;
+            topplayer = i;
+        }
+        if (score >= 30){
+            goodinings++;
+        }
+    }
+    cout << "Total score of the team is: " << total << endl;
+    cout << "Highest score of the team player " << topplayer << " is : " << highest << endl;
+    cout << "Number of good innings (30 or more runs) is: " << goodinings << endl;
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o cricket_tracker cricket_tracker.cpp
+```
+
+### Execute
+```bash
+./cricket_tracker
+```
+
+---
+
+## 🧪 Example
+
+```
+Enter the score of player 1: 45
+Enter the score of player 2: 12
+Enter the score of player 3: 78
+Enter the score of player 4: 0
+Enter the score of player 5: 33
+Enter the score of player 6: 21
+Enter the score of player 7: 56
+Enter the score of player 8: 9
+Enter the score of player 9: 15
+Enter the score of player 10: 42
+Enter the score of player 11: 3
+
+Total score of the team is: 314
+Highest score of the team player 3 is : 78
+Number of good innings (30 or more runs) is: 4
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**Finding the highest scorer:**
+```cpp
+if (score > highest){
+    highest = score;    // update highest runs
+    topplayer = i;      // save player number
+}
+```
+Every time a player scores more than the current highest, we update both the score and the player number.
+
+**Counting good innings:**
+```cpp
+if (score >= 30){
+    goodinings++;
+}
+```
+Every player who scores 30 or more is counted as a good innings.
+
+---
+
+## 🧠 Dry Run (first 4 players)
+
+| Player | Score | highest | topplayer | goodinings |
+|--------|-------|---------|-----------|------------|
+| 1      | 45    | 45      | 1         | 1          |
+| 2      | 12    | 45      | 1         | 1          |
+| 3      | 78    | 78      | 3         | 2          |
+| 4      | 0     | 78      | 3         | 2          |
+
+---
+
+## 📌 Concepts Used
+
+- `for` loop
+- `if` conditions inside a loop
+- Tracking highest value and its index
+- Increment operator (`++`)
+- Variable initialization
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how **PCB and cricket scorecards** work:
+- Each player's runs are recorded
+- Total team score is calculated
+- Man of the match is the highest scorer
+- Good innings are tracked for player performance ratings
+
+---
+
+## 👤 Author
+
+Danish
