@@ -1478,3 +1478,247 @@ This is exactly how a **restaurant ordering system** works:
 ## 👤 Author
 
 Danish
+
+######
+problem 13 of loops concept:
+# Employee Salary Filter — C++ Program
+
+A real world C++ program that filters and displays only employees with a **salary above 30000 Rs** using a `for` loop and `continue` statement.
+
+---
+
+## 📋 Description
+
+The program takes the salary of 10 employees one by one. If an employee earns less than 30000 Rs, their record is skipped. Only employees with a good salary (30000 Rs or above) are displayed. This is exactly how an HR system filters employee salary records.
+
+---
+
+## 💻 Code
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+    int salary = 0, employees = 10;
+    for(int i = 1; i <= employees; i++){
+        cout << "Enter the salary of Employee " << i << ": ";
+        cin >> salary;
+        if (salary < 30000){
+            continue;
+        }
+        else {
+            cout << "The salary of Employee " << i << " is " << salary << " Rs which is greater than 30000\n";
+        }
+    }
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o salary_filter salary_filter.cpp
+```
+
+### Execute
+```bash
+./salary_filter
+```
+
+---
+
+## 🧪 Example
+
+```
+Enter the salary of Employee 1: 25000  → skipped
+Enter the salary of Employee 2: 45000  → The salary of Employee 2 is 45000 Rs which is greater than 30000
+Enter the salary of Employee 3: 15000  → skipped
+Enter the salary of Employee 4: 60000  → The salary of Employee 4 is 60000 Rs which is greater than 30000
+Enter the salary of Employee 5: 32000  → The salary of Employee 5 is 32000 Rs which is greater than 30000
+...
+```
+
+---
+
+## 🔑 Key Concept Explained
+
+**How continue works:**
+```cpp
+if (salary < 30000){
+    continue;  // skip this employee and go to next iteration
+}
+```
+
+`continue` skips the rest of the loop body and jumps straight to the next employee. The low salary employee is never printed.
+
+---
+
+## 🧠 Dry Run (5 employees)
+
+| i | salary | salary < 30000? | Action |
+|---|--------|-----------------|--------|
+| 1 | 25000  | ✅ Yes           | skip — continue |
+| 2 | 45000  | ❌ No            | print salary |
+| 3 | 15000  | ✅ Yes           | skip — continue |
+| 4 | 60000  | ❌ No            | print salary |
+| 5 | 32000  | ❌ No            | print salary |
+
+---
+
+## 📌 Concepts Used
+
+- `for` loop
+- `continue` statement
+- `if/else` condition
+- Salary filtering logic
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how an **HR system** works:
+- HR enters salary of each employee
+- System automatically filters out low salary records
+- Only employees above the salary threshold are displayed
+- Used for bonus calculations, promotions, and reports
+
+---
+
+## 👤 Author
+
+Danish
+
+######
+
+problem 14 of loop concept:
+# Shopping Cart Budget Tracker — C++ Program
+
+A real world C++ program that tracks a **shopping cart total** and stops when the budget exceeds **5000 Rs**, skipping any invalid zero price entries using `break` and `continue`.
+
+---
+
+## 📋 Description
+
+The program keeps asking the user to enter item prices one by one. If a price of 0 is entered it is skipped. The total is updated after each valid item and when the total exceeds 5000 Rs the program stops and displays the final total. This is exactly how an online shopping cart budget limit works.
+
+---
+
+## 💻 Code
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+    int price, total = 0;
+    while (true){
+        cout << "Enter the item price: ";
+        cin >> price;
+        if (price == 0){
+            continue;
+        }
+        total = total + price;
+        if (total > 5000){
+            cout << "Your total price is " << total << endl;
+            break;
+        }
+    }
+    cout << "Budget exceeded! Stopping.";
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o shopping_cart shopping_cart.cpp
+```
+
+### Execute
+```bash
+./shopping_cart
+```
+
+---
+
+## 🧪 Example
+
+```
+Enter the item price: 1500
+Enter the item price: 0       → skipped
+Enter the item price: 2000
+Enter the item price: 0       → skipped
+Enter the item price: 2000
+
+Your total price is 5500
+Budget exceeded! Stopping.
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**Skipping zero price with continue:**
+```cpp
+if (price == 0){
+    continue;  // skip this item and ask again
+}
+```
+
+**Stopping when budget exceeded with break:**
+```cpp
+if (total > 5000){
+    cout << "Your total price is " << total << endl;
+    break;  // stop the loop
+}
+```
+
+**Both used together:**
+
+| Statement  | Purpose                          |
+|------------|----------------------------------|
+| `continue` | Skip invalid item (price = 0)    |
+| `break`    | Stop when budget exceeds 5000 Rs |
+
+---
+
+## 🧠 Dry Run
+
+| Item  | Price | total          | Action         |
+|-------|-------|----------------|----------------|
+| 1     | 1500  | 0 + 1500 = 1500 | continue loop |
+| 2     | 0     | 1500           | skipped        |
+| 3     | 2000  | 1500 + 2000 = 3500 | continue loop |
+| 4     | 0     | 3500           | skipped        |
+| 5     | 2000  | 3500 + 2000 = 5500 | break! budget exceeded |
+
+---
+
+## 📌 Concepts Used
+
+- `while(true)` loop
+- `break` statement
+- `continue` statement
+- Running total tracking
+- Budget limit checking
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how an **online shopping cart** works:
+- You keep adding items
+- Invalid entries are ignored
+- When total exceeds your budget limit it warns you and stops
+- Final total is displayed before checkout
+
+---
+
+## 👤 Author
+
+Danish
