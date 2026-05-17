@@ -1722,3 +1722,145 @@ This is exactly how an **online shopping cart** works:
 ## 👤 Author
 
 Danish
+
+#####
+problem 1 of function concept:
+# BMI Calculator — C++ Program
+
+A real world C++ program that calculates a person's **Body Mass Index (BMI)** using a separate function and displays the health category using `if/else` conditions.
+
+---
+
+## 📋 Description
+
+The user enters their weight in kg and height in meters. The program passes these values to a `calculateBMI` function which returns the BMI value. The main function then prints the BMI and its health category. This is exactly how fitness apps like MyFitnessPal calculate your BMI.
+
+---
+
+## 💻 Code
+
+```cpp
+#include <iostream>
+using namespace std;
+
+double CalculateBMI(double height, double weight){
+    return weight / (height * height);
+}
+
+int main(){
+    double h, w, result;
+    cout << "For calculating BMI sir fill the below form!\n";
+    cout << "Enter your weight (kg): ";
+    cin >> w;
+    cout << "Enter your height (m): ";
+    cin >> h;
+    result = CalculateBMI(h, w);
+    cout << "Your BMI is: " << result << endl;
+    if (result < 18.5){
+        cout << "Sir you are underweight focus on weight gain.\n";
+    }
+    else if (result < 24.9){
+        cout << "Sir you are normal continue the routine exercise.\n";
+    }
+    else if (result < 29.9){
+        cout << "Sir you are overweight please do more exercises.\n";
+    }
+    else {
+        cout << "Sir you are obese please do more exercises and dieting.\n";
+    }
+    return 0;
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### Compile
+```bash
+g++ -o bmi_calculator bmi_calculator.cpp
+```
+
+### Execute
+```bash
+./bmi_calculator
+```
+
+---
+
+## 🧪 Example
+
+```
+For calculating BMI sir fill the below form!
+Enter your weight (kg): 70
+Enter your height (m): 1.75
+
+Your BMI is: 22.86
+Sir you are normal continue the routine exercise.
+```
+
+---
+
+## 🔑 Key Concepts Explained
+
+**BMI Formula:**
+```
+BMI = weight / (height * height)
+```
+
+**Function returning a value:**
+```cpp
+double CalculateBMI(double height, double weight){
+    return weight / (height * height);  // sends value back to main
+}
+
+// catching return value in main
+result = CalculateBMI(h, w);
+```
+
+---
+
+## 🧠 BMI Categories
+
+| BMI Range | Category |
+|-----------|----------|
+| Below 18.5 | Underweight |
+| 18.5 to 24.9 | Normal |
+| 25 to 29.9 | Overweight |
+| 30 and above | Obese |
+
+---
+
+## 🧠 Dry Run for weight 70kg height 1.75m
+
+```
+BMI = 70 / (1.75 * 1.75)
+BMI = 70 / 3.0625
+BMI = 22.86  → Normal ✅
+```
+
+---
+
+## 📌 Concepts Used
+
+- Functions with return value
+- `double` return type
+- Passing parameters to a function
+- `if/else if/else` conditions
+- BMI formula
+
+---
+
+## 🌍 Real World Connection
+
+This is exactly how **fitness apps** calculate BMI:
+- User enters weight and height
+- App calculates BMI using the formula
+- App shows health category
+- User gets advice based on their BMI
+
+---
+
+## 👤 Author
+
+Danish
