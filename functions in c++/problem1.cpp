@@ -16,7 +16,7 @@ int main(){
     cout<<"Your BMI is : ";
     cout<<result<<endl;
     if (result < 18.5){
-        cout<<"Sir you are underweight foucs on weight gain .\n";
+        cout<<"Sir you are underweight foucs on weight gain .\n";  
     }
     else if (result < 24.9){
         cout<<"Sir you are normal continue the routine excersice and food you eat normally .\n";
