@@ -1922,3 +1922,98 @@ The final price of the Ticket is : 300
 ## Key Takeaway
 The function computes and returns the `price`, not the `age` that was passed in. This is what makes the return value in `main()` meaningful — it holds the actual result of the function's logic, ready to be used or displayed further.
 ## Author Danish khan 
+
+######
+Problem 3 in the functions concept
+# Electricity Bill Calculator
+
+## Overview
+A C++ program that calculates an electricity bill based on slab-wise unit pricing. Demonstrates function parameters, return values, and conditional logic for tiered pricing systems — a common real-world billing pattern used by utility providers.
+
+## Problem Statement
+Given the number of electricity units consumed, calculate the total bill using the following slabs:
+
+| Units Consumed      | Rate per Unit |
+|----------------------|---------------|
+| First 100 units      | Rs. 5         |
+| Next 100 units (101–200) | Rs. 7     |
+| Above 200 units      | Rs. 10        |
+
+## Approach
+- The function `calculateBill(int units)` takes total units consumed as a parameter and returns the total bill as an integer.
+- Three price variables (`price1`, `price2`, `price3`) represent the cost contributed by each slab.
+- The first two slabs are always priced using a **fixed 100 units** (since only 100 units can ever fall into each of those slabs, regardless of total consumption). Only the final slab uses the actual leftover units.
+- `if / else if / else` is used to determine which slab range the total falls into, and the applicable slabs are calculated accordingly.
+- The final bill is the sum of all applicable slab prices, returned to `main()` and displayed.
+
+## Code
+```cpp
+#include <iostream>
+using namespace std;
+
+int calculateBill(int units){
+    int price1 = 0, price2 = 0, price3 = 0, totalprice;
+
+    if (units <= 100){
+        price1 = units * 5;
+        cout << "The price of the " << units << " units is: " << price1 << endl;
+    }
+    else if (units <= 200){
+        price1 = 100 * 5;
+        price2 = (units - 100) * 7;
+        cout << "The price of the first 100 units is: " << price1 << endl;
+        cout << "The price of the second 100 units is: " << price2 << endl;
+    }
+    else {
+        price1 = 100 * 5;
+        price2 = 100 * 7;
+        price3 = (units - 200) * 10;
+        cout << "The price of first 100 units is: " << price1 << endl;
+        cout << "The price of second 100 units is: " << price2 << endl;
+        cout << "The price of remaining " << units - 200 << " units is: " << price3 << endl;
+    }
+
+    return totalprice = price1 + price2 + price3;
+}
+
+int main(){
+    int units;
+    cout << "Enter the units consumed: ";
+    cin >> units;
+
+    int bill = calculateBill(units);
+    cout << "Total electricity bill is Rs = " << bill << endl;
+
+    return 0;
+}
+```
+
+## Sample Output
+
+**Input:** `1200`
+```
+Enter the units consumed: 1200
+The price of first 100 units is: 500
+The price of second 100 units is: 700
+The price of remaining 1000 units is: 10000
+Total electricity bill is Rs = 11200
+```
+
+**Input:** `156`
+```
+Enter the units consumed: 156
+The price of the first 100 units is: 500
+The price of the second 100 units is: 392
+Total electricity bill is Rs = 892
+```
+
+**Input:** `60`
+```
+Enter the units consumed: 60
+The price of the 60 units is: 300
+Total electricity bill is Rs = 300
+```
+
+## Key Takeaway
+Slab-wise pricing requires each tier to be capped at its own fixed range before applying the next rate — using the running total (`units`) directly for every slab's multiplication leads to overcharging on inputs that span multiple slabs. Testing with edge cases (values that just cross each slab boundary, and large values that pass through all slabs) is essential to catch this kind of bug.
+## Auther Muhammad Danish Khan
