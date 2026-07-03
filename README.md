@@ -1864,3 +1864,61 @@ This is exactly how **fitness apps** calculate BMI:
 ## 👤 Author
 
 Danish
+
+######
+Problem 2 of functions concept :
+# Movie Ticket Price Calculator
+
+## Problem Statement
+A cinema charges different ticket prices based on a person's age group:
+- Age less than 12 (Child): Rs. 200
+- Age 12 to 59 (Adult): Rs. 500
+- Age 60 and above (Senior): Rs. 300
+
+Write a function `calculateTicketPrice(int age)` that takes a person's age as a parameter and returns the correct ticket price. Take the age input in `main()`, call the function, and display the final result.
+
+## Concept Covered
+- Function parameters and return values
+- Using `if / else if / else` inside a function
+- Returning a computed value (ticket price) instead of the input value (age)
+- Using a function's return value in `main()`
+
+## Code
+```cpp
+#include <iostream>
+using namespace std;
+
+int calculateTicketPrice(int age){
+    int price;
+    if (age < 12){
+        price = 200;
+        cout << "Sir your child is less than 12 years so the ticket price is Rs = 200 \n ";
+    }
+    else if (age <= 59){
+        price = 500;
+        cout << "Sir your are Adult so your ticker price is Rs = 500 \n ";
+    }
+    else{
+        price = 300;
+        cout << "Yor are senior so your ticket price is Rs = 300 \n ";
+    }
+    return price;
+}
+
+int main (){
+    int finalprice = calculateTicketPrice(81);
+    cout << "The final price of the Ticket is : " << finalprice << endl;
+
+    return 0;
+}
+```
+
+## Sample Output
+```
+Yor are senior so your ticket price is Rs = 300 
+The final price of the Ticket is : 300
+```
+
+## Key Takeaway
+The function computes and returns the `price`, not the `age` that was passed in. This is what makes the return value in `main()` meaningful — it holds the actual result of the function's logic, ready to be used or displayed further.
+## Author Danish khan 
