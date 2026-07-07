@@ -2017,3 +2017,97 @@ Total electricity bill is Rs = 300
 ## Key Takeaway
 Slab-wise pricing requires each tier to be capped at its own fixed range before applying the next rate — using the running total (`units`) directly for every slab's multiplication leads to overcharging on inputs that span multiple slabs. Testing with edge cases (values that just cross each slab boundary, and large values that pass through all slabs) is essential to catch this kind of bug.
 ## Auther Muhammad Danish Khan
+
+
+#####
+
+# Taxi Fare Calculator
+
+## Overview
+A C++ program that calculates a taxi ride's total fare based on distance traveled and whether the ride occurs at night. Demonstrates functions with multiple parameters of different types (`float` and `bool`), and applying a percentage-based surcharge to a computed subtotal — a common real-world billing pattern.
+
+## Problem Statement
+Calculate the total fare for a taxi ride using the following rules:
+- Base fare: Rs. 100 (flat, charged regardless of distance)
+- Rs. 15 per kilometer traveled
+- If the ride occurs at night, add a 20% night surcharge on the **total fare** (base + distance charge)
+
+## Approach
+- The function `calculatefare(float distance, bool isNight)` takes the distance traveled and a boolean flag indicating a night ride.
+- `charge` is calculated as `distance * 15` and added to the flat `BaseFare` to get `subTotal`.
+- An `if / else` checks `isNight`:
+  - If true, a 20% surcharge is calculated on `subTotal` and added to it to get `Total`.
+  - If false, `Total` is simply equal to `subTotal`.
+- `Total` is returned once, after the `if / else` block, and displayed in `main()`.
+
+## Code
+```cpp
+#include <iostream>
+using namespace std;
+
+auto calculatefare(float distance, bool isNight){
+    float charge, subTotal, BaseFare = 100, nightcharges, Total = 0;
+    cout << "The base fare of the ride is " << BaseFare << endl;
+    charge = distance * 15;
+    cout << "The distance charges is = " << charge << endl;
+    subTotal = charge + BaseFare;
+    cout << "The subtotal charges is  = " << subTotal << endl;
+
+    if (isNight){
+        nightcharges = subTotal * 0.20;
+        cout << "There is night charges also included : " << nightcharges << endl;
+        cout << "The total charges is : ";
+        Total = subTotal + nightcharges;
+        cout << Total << endl;
+    }
+    else {
+        cout << "There is no any night charges included \n";
+        cout << "The total charges is : ";
+        Total = subTotal;
+        cout << Total << endl;
+    }
+    return Total;
+}
+
+int main(){
+    double distance;
+    bool isNight;
+    cout << "Enter the number of distance (Kms) the car travelled : ";
+    cin >> distance;
+    cout << "It is night ride (Type 1 for true and 0 for false): ";
+    cin >> isNight;
+
+    float Totalprice = calculatefare(distance, isNight);
+    cout << "Final price : " << Totalprice << endl;
+
+    return 0;
+}
+```
+
+## Sample Output
+
+**Input:** `distance = 10`, `isNight = 1`
+```
+The base fare of the ride is 100
+The distance charges is = 150
+The subtotal charges is  = 250
+There is night charges also included : 50
+The total charges is : 300
+Final price : 300
+```
+
+**Input:** `distance = 10`, `isNight = 0`
+```
+The base fare of the ride is 100
+The distance charges is = 150
+The subtotal charges is  = 250
+There is no any night charges included 
+The total charges is : 250
+Final price : 250
+```
+
+## Key Takeaway
+When a surcharge is meant to apply to an already-computed subtotal, it's important to calculate it strictly from that subtotal — not by re-adding earlier components a second time. Structuring the function with a single `Total` variable set inside the conditional branches, and returned once at the end, keeps the logic clean and avoids duplicate additions.
+
+---
+**Author:** Danish
