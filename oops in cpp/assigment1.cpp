@@ -27,12 +27,15 @@ int main (){
     student s[4];
     for(int i=0;i<4;i++){
         cout<<"Student "<<i+1<<" : \n";
+        
         s[i].setdata();
     }
     cout<<"THE INFORMATION OF THE STUDENT IN THE CLASS IS : \n";
     for(int i=0;i<4;i++){
         cout<<"Student "<<i+1<<" :\n";
+
         s[i].displaydata();
+        
     }
     return 0;
 }
